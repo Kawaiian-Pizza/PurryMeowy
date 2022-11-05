@@ -1,0 +1,203 @@
+/* ----------- */
+/* 1. Navbar   */
+/* ----------- */
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    padding: 15px 50px 120px ;
+    font-size: 1.2em;
+    background-color: #eed1bc;
+    background-image: url("../../public/imgs/banner.png");
+    background-position: left bottom;
+    background-size: 738px 157px; 
+    background-repeat: repeat-x;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
+}
+
+/* ---- Logo: PurryMeowy ---- */
+.navbar__brand{
+    letter-spacing: 2px;
+    margin-right: 70px;
+    color:var(--reddishbrown);
+    font-family: "Pacifico";
+    font-size: 2em;
+    transition: all 0.2s  ease-in-out;
+}
+
+.navbar__brand:hover{
+      transform: scale(1.05);
+}
+
+/* ---- Links (Fish Icon) ---- */
+.fa-fish{
+    color: var(--reddishbrown);
+    padding-right: 5px;
+    transform: rotate(-30deg);
+}
+
+.navbar__link:hover i{
+  animation:  iconshake 0.5s  ease-in-out;
+  color: var(--brown);
+}  
+
+  @keyframes iconshake{
+    0%{
+      transform: rotate(-50deg); 
+    }
+    15%{
+      transform: rotate(-10deg); 
+    }
+    50%{
+      transform: rotate(-40deg); 
+    }
+    70%{
+      transform: rotate(-20deg);
+    }
+      66%{
+    transform: rotate(-35deg);
+      }
+    100%{
+    transform: rotate(-25deg);
+      } 
+  }
+  
+/* ---- Links (Text) ---- */
+.navbar__link-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+  font-size: 0.8em;
+  font-family: 'DynaPuff', cursive;
+}
+
+.navbar__link{
+  color: var(--reddishbrown);
+  margin-right: 50px;
+}
+
+.navbar__link:hover{
+  color: var(--brown);
+  transition: all 0.2s  ease-in-out;
+}
+  
+/* ---- Toggler & Left Menu: Hidden ---- */
+.leftmenu__toggler{
+    display: none;
+}
+
+.fa-bars{
+    display: none;
+  }
+
+/* ---- Disabled Links ---- */
+a.disabled-link, .fa-fish.disabled-link,  a.disabled-link:hover, .fa-fish.disabled-link:hover{
+  text-decoration: none;
+  cursor: default;
+  color: var(--milktea)
+}
+
+/* --------------------------------- */
+/*  Responsive Design: Mobile View */
+/* --------------------------------- */
+@media (max-width: 800px){
+/* ---- Navbar: Hidden ---- */
+  .navbar{
+    display: none;
+  }
+
+/* ---- Toggler: Shown ---- */
+  .leftmenu__toggler {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    padding: 3px 8px;
+    color: var(--brown);
+    border: 2px solid var(--brown);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+  .fa-bars {
+      display: block;
+      color: var(--brown);
+  }
+
+/* ---- Left Menu Animation ---- */
+  //Hidden 
+  .leftmenu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 170px;
+      background-color:  var(--brown);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--cream);
+      transform: translate3d(-170px, 0, 0);
+      transition: transform .5s cubic-bezier(0, .52, 0, 1);
+  }
+
+  .leftmenu__page-mask {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: transparent;
+    transition: background-color .3s ease-in-out;
+}
+
+  //Shown
+  .leftmenu.expanded { 
+    transform: translate3d(0px, 0, 0);
+  }
+  
+  .leftmenu__page-mask.enabled {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgb(239, 211, 200, 0.6);
+}
+
+/* ---- Left Menu Content---- */
+  .leftmenu__close-icon{
+    color: var(--cream);
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  .expanded li{
+      padding: 15px;
+      border-bottom: 1px solid var(--cream);
+  }
+
+  .expanded a{
+      color: var(--cream);
+  }
+
+/* ---- Disabled Links ---- */
+  a.disabled-link, .fa-fish.disabled-link,  a.disabled-link:hover, .fa-fish.disabled-link:hover{
+    text-decoration: none;
+    cursor: default;
+    color: var(--milktea)
+  }
+}
+
+
+

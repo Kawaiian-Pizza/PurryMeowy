@@ -1,0 +1,105 @@
+.facts__container{
+  /*     background-color: rgba(15, 29, 232, 0.466);  */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      margin-top: 180px;  
+  }
+  
+/* ------------------------- */
+/* 1. Introduction           */
+/* ------------------------- */
+
+.intro__container{
+    text-align: center;
+    min-width: 500px;
+    max-width: 50%;
+    color: var(--brown);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.dancing-cat__img{
+    height: 150px;
+}
+
+.dancing-cat__speech{
+    color: var(--blue);
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+/* ------------------------- */
+/* 2. Accordion              */
+/* ------------------------- */
+.accordion__container {
+    max-width: 800px;
+    width: 70%;
+    margin-bottom: 10px;    
+  }
+
+  
+/* ---- Before Opening ---- */
+.accordion__header {
+    background-color: var(--reddishbrown);
+    color: var(--cream);
+    padding: 20px 30px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    width: 100%;
+}
+  
+  .accordion__header:after {
+    content: '\002B';  // + Sign
+    color: var(--cream);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+
+/* ---- Hovering ---- */
+  .active, .accordion__header:hover {
+    background-color: var(--brown);
+  }
+  
+
+/* ---- After Opening ---- */
+  .active:after {
+    content: "\2212"; // - Sign
+  }
+  
+  .accordion__panel {
+    line-height: 1.5;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 30px 50px 40px 40px;
+    background-color: white;
+    color: var(--reddishbrown);
+    transition: max-height 0.2s ease-out;
+  }
+
+  .accordion__panel > p {
+    margin-bottom: 15px;
+
+  }
+
+  .accordion__panel > p:last-child{
+    margin-bottom: 0px;
+}
+
+/* --------------------------------- */
+/*  Responsive Design: Mobile View */
+/* --------------------------------- */
+
+@media (max-width: 800px){
+  .facts__container{
+      margin-top: 100px;
+  }
+}
