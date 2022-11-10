@@ -28,7 +28,6 @@ class HomePage extends React.Component{
   }  
 
   componentDidUpdate(prevProps) {
-    console.log(this.props.catInfo)
      if(prevProps.breedAnswer!==this.props.breedAnswer || prevProps.questionNumber!==this.props.questionNumber){
       this.props.generateOptions() 
       }
@@ -58,8 +57,6 @@ class HomePage extends React.Component{
   }
 
   renderOptions(){
-    console.log(this.props.optionsArray)
-    console.log(this.props.breedAnswer)
     if(this.props.optionsArray){
     return this.props.optionsArray.map(((breedOption, idx)=>{
         return(
@@ -115,7 +112,7 @@ class HomePage extends React.Component{
 
         <div className="game-area__container">
           <div className="question-area__img__container">
-            <img className="question-area__img" style={{maxWidth: "250px", maxHeight: "270px"}} src={currentBreed.url}></img>
+            <img className="question-area__img" src={currentBreed.url}></img>
           </div>
           <div className={`options__container  ${this.props.hasWon ? "invisible" : "visible"}`}>
                 {this.renderOptions()} 
@@ -130,13 +127,13 @@ class HomePage extends React.Component{
               <div>Social Needs:</div><div className="answer-area__ratings__boxes">{renderRatingBoxes(currentBreed.breeds[0].social_needs)}</div>
             </div>
           <div className="answer-area__show-more" onClick={()=>{this.setState({showDescription: true})}}>
-              &gt;&gt; Click to view breed details
+              &gt;&gt; View descriptions &lt;&lt;
             </div>
           </div>
 
             <div className={`answer-area__description__container ${this.state.showDescription ? "visible" : "invisible"}`}>
               <div className="answer-area__description__content">{currentBreed.breeds[0].description}</div> 
-              <div className="answer-area__show-more" onClick={()=>{this.setState({showDescription: false})}}>&gt;&gt; Click to view breed statistics</div>
+              <div className="answer-area__show-more" onClick={()=>{this.setState({showDescription: false})}}>&gt;&gt; View ratings	&lt;&lt;</div>
             </div>
           </div> 
 
@@ -150,19 +147,6 @@ class HomePage extends React.Component{
       </div>
     )
   }
-
- /*  renderAllAnswers(){
-  return(
-  this.props.catInfo.map((breed)=>{
-    return(
-      <div className="final__image-card">
-        <img className="final__img" style={{maxWidth: "250px", maxHeight: "270px"}} src={breed.url}></img>
-        <span>{breed.breeds[0].name}</span>
-      </div>
-    )
-  })
-  )
-  } */
 
   renderAllAnswers(){
     const images = this.props.catInfo.map((breed, idx)=>{

@@ -18,7 +18,7 @@ const hidemenu = (e) => {
 return ( //navbarTogglerDemo02 
 <>
   <nav className="navbar">
-      <a className="navbar__brand" href="#">PurryMeowy</a>
+      <a className="navbar__brand" href="/">PurryMeowy</a>
         <ul className="navbar__link-list"> 
           <li><a aria-current="page" href="/" className="navbar__link"><i className="fa-solid fa-fish"/>Guess My Breed</a></li>
           <li><a href="/facts" className="navbar__link"><i className="fa-solid fa-fish"/>Cat Facts</a></li>

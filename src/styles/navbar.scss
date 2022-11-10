@@ -26,7 +26,7 @@
     margin-right: 70px;
     color:var(--reddishbrown);
     font-family: "Pacifico";
-    font-size: 2em;
+    font-size: 1.4em;
     transition: all 0.2s  ease-in-out;
 }
 
@@ -73,13 +73,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center; 
-  font-size: 0.8em;
+  font-size: 0.75em;
   font-family: 'DynaPuff', cursive;
 }
 
 .navbar__link{
   color: var(--reddishbrown);
-  margin-right: 50px;
+  margin-right: 35px;
 }
 
 .navbar__link:hover{

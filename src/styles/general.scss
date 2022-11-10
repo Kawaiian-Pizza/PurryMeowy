@@ -98,14 +98,26 @@ a, a:link, a:visited, a:active {
         background-color: #f5e5d9;
         color: #f1d9c8;
         width: 100%;
-        min-height: 100vh;
+        min-height: 100vw;
         max-height: 100vh;
-        background-attachment: fixed;
+/*         background-attachment: fixed;
         background-image: url("../../public/imgs/blob.svg");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 1000px; 
+        background-size: 1000px;  */
     }
+    body:before {
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -10;
+        background: url("../../public/imgs/blob.svg") no-repeat center center;
+        background-size: 145% 140%;
+      }
   }
 
 

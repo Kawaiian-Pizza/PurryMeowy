@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 const Accordion = ({title, p1, p2, p3, p4}) => {
-   const [isShow, setIsShow] = useState(true) 
+   const [isShow, setIsShow] = useState(false) 
       return (
       <div className="accordion__container">
         <button className={`accordion__header ${isShow ? "active" : ""}`} onClick={()=>{setIsShow(!isShow)}}>{title}</button>

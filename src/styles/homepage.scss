@@ -36,6 +36,7 @@
     align-items: center; 
     line-height: 1.3;
 }
+
 .final__speaking-cat__img{
     width: 70px;
     display:block;
@@ -55,6 +56,7 @@
 .image-list{
     width:100%;
     margin-top: 40px;
+    margin-bottom: 15px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
     grid-auto-rows: 10px;
@@ -178,6 +180,8 @@
 .question-area__img {
     border-radius: 15px; 
     border: var(--brown) 2px solid;
+    max-width: 250px;
+    max-height: 270px;
 }
 
 /* ------------------------- */
@@ -243,16 +247,16 @@ button.incorrect-choice{
     line-height: 1.4em;
     width: 260px;
     text-align: left;
-    margin-left: 30px;
     box-sizing: border-box; 
+    margin-left: 30px;
     height: 250px;
 }
 
 .answer-area__show-more{
     margin-top: 15px;
     cursor: pointer;
-    font-size: 0.9em;
-    color: var(--milktea);
+    font-size: 1em;
+    color: var(--blue);
 }
 
 /* ------------------------- */
@@ -261,6 +265,7 @@ button.incorrect-choice{
 
 .answer-area__ratings__content{
     height: 250px;
+    margin-left: 20px;
 }
 
 .answer-area__ratings__boxes{
@@ -307,6 +312,7 @@ button.incorrect-choice{
 .answer-area__description__content{
     overflow-y: auto;
     height: 250px; 
+    padding: 0px 10px;
 }
 
 /* ------------------------- */
@@ -317,14 +323,15 @@ button.incorrect-choice{
     font-size: 1.3em;
     cursor: pointer;
     color:  var(--brown) ;
-    width: 0px;
-    height: 350px;
+    width: 50px;
+    height: 65px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .fa-chevron-right{
-    transform: scale(120%) translateX(25px);
+    transform: scale(150%);
 }
 
 .invisible {
@@ -339,17 +346,27 @@ button.incorrect-choice{
 @media (max-width: 800px){
     .finalpage__container {
         display: flex;
-    /*     background-color: blue; */
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100vw;
-        /* height: calc(100vh - 100px);
-        min-height: 530px; */
         margin-top: 0px;
-        padding: 70px;
+        padding: 30px 0px;
         box-sizing: border-box;
     }    
+
+    .final__container{
+            width: 80%;
+        }
+
+    .final__title-sm{
+        font-size: 1.2em;
+        margin-top: 3px;
+    }
+    
+    .image-list{
+        margin-top: 15px;
+      }
 
 /* ---- 1. Regular Content ---- */
     .homepage__container{
@@ -360,9 +377,20 @@ button.incorrect-choice{
         margin-top: 0px;
     }
 
+    .question-area__img {
+        max-width: 250px;
+        max-height: 230px;
+    }
+
     .speaking-cat__container{
-        margin-bottom: 35px;
-        margin-right: 75px;
+        letter-spacing: 1.2px;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        margin-right: 60px;
+    }
+
+    .speaking-cat__speech-bubble__content{
+        font-size: 0.7em;
     }
 
     .game-area__container{
@@ -375,49 +403,63 @@ button.incorrect-choice{
     }
 
 /* ---- 2. The 4 Options ---- */
+
     .options__container.visible {
         margin-top: 20px;
         margin-left: 0px;
     }
 
+    .options__container > button {
+        padding: 9px 15px;
+        font-size: 1em;
+        width: 260px;
+        text-align: center;
+        margin: 7px 0px;
+        font-family: 'DynaPuff', cursive;
+    }
+
 /* ---- 3. After Choosing the Correct Option ---- */
     .answer-area__container.visible{
+        margin-top: 15px;
+        margin-left: 0px;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .answer-area__show-more{
+        margin-top: 0px;
+    }
+
+/*     .answer-area__container.visible{
         background: none;
         color:  var(--brown) ;
         font-size: 1.1em;
         line-height: 1.4em;
         width: 260px;
         text-align: left;
-        margin-top: 25px;
-        margin-left: 0px;
         box-sizing: border-box; 
+        margin-left: 30px;
         height: 250px;
-    }
+    } */
 
-    .answer-area__show-more{
-        margin-top:20px;
-        cursor: pointer;
-        font-size: 0.9em;
-        color: var(--milktea);
+    .answer-area__ratings__content{
+        margin-left: 0px;
+    }
+    
+    .answer-area__description__content{
+        overflow-y: auto;
+        height: 250px; 
+        padding: 0px 10px;
+        text-align: left;
     }
 
 /* ---- 4. Next Question ---- */
     .answer-area__arrow{
-        position:absolute;
-        right: 50px;
-        top: 450px;
-        font-size: 1.3em;
-        cursor: pointer;
-        color:  var(--brown) ;
-        width: 25px;
-        height: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: right;
-    }
-    
-    .fa-chevron-right{
-        transform: scale(120%);
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        width: 45px;
+        height: 65px;
     }
 
     .invisible{
