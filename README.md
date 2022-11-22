@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployment
+
+This project was deployed using Netlify: [https://purrymeowy.netlify.app/](https://purrymeowy.netlify.app/).
+
 ## Available Scripts
 
 In the project directory, you can run:

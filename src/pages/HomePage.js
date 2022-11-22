@@ -20,7 +20,8 @@ class HomePage extends React.Component{
   state = {
     showDescription: false, 
     attemptCount: 0,
-    isEnded: false 
+    isEnded: false,
+    isLoading: true
   }
 
   componentDidMount(){
@@ -83,6 +84,7 @@ class HomePage extends React.Component{
       this.setState({attemptCount: 0})
       this.setState({showDescription: false})
       this.props.changeToNextQ()
+      this.setState({isLoading: true})
     }
     if(this.props.questionNumber === 3){
       this.setState({isEnded: true})
@@ -112,7 +114,7 @@ class HomePage extends React.Component{
 
         <div className="game-area__container">
           <div className="question-area__img__container">
-            <img className="question-area__img" src={currentBreed.url}></img>
+            <img className="question-area__img" src={currentBreed.url} onLoad={()=>{this.setState({isLoading: false})}}></img>
           </div>
           <div className={`options__container  ${this.props.hasWon ? "invisible" : "visible"}`}>
                 {this.renderOptions()} 
@@ -160,17 +162,7 @@ class HomePage extends React.Component{
 
 
   render(){
-    if(!this.props.catInfo){
-      return (
-      <div className="homepage__container">
-        <div className="loading__speaking-cat__container">
-          <img className="loading__speaking-cat__img" src={imgLoading}></img>
-          <span>Loading...</span>
-         </div> 
-    </div>
-      )
-    }
-    else if(this.state.isEnded){
+    if(this.state.isEnded){
       return (
       <div className="finalpage__container">
         <div className="final__container">
@@ -183,12 +175,30 @@ class HomePage extends React.Component{
     </div>
       )
     }
-    else if(this.props.questionNumber<= 3){
-    return(
-      <div key={this.props.questionNumber}>
+    else if(!this.props.catInfo){
+      return(
+        <div className="homepage__container">
+        <div className="loading__speaking-cat__container">
+          <img className="loading__speaking-cat__img" src={imgLoading}></img>
+          <span>Loading...</span>
+         </div> 
+      </div>
+      )
+    }
+    else return(
+    <>
+      <div  style={{display: this.state.isLoading ? "none" : "block"}}  key={this.props.questionNumber}>
         {this.renderHomepageContent()}
       </div>
-    )}
+
+      <div style={{display: this.state.isLoading ? "flex" : "none"}} className="homepage__container">
+        <div className="loading__speaking-cat__container">
+          <img className="loading__speaking-cat__img" src={imgLoading}></img>
+          <span>Loading...</span>
+         </div> 
+      </div> 
+    </>
+    )
     
   }
 } 
